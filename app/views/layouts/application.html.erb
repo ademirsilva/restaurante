@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>Programa de Qualificação de Restaurante</title>
+		<%= stylesheet_link_tag 'scaffold'%>
+		<%= javascript_include_tag :all %>
+	</head>
+	<body>
+		<%= menu_principal %>
+		<%= australina_url %>
+		<%= australina_path %>
+		<p style="color: green"><%= flash[:notice] %></p>
+		<%= yield %>
+	</body>
+</html>

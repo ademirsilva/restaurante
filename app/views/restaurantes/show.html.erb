@@ -1,0 +1,36 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Untitled Document</title>
+	</head>
+	<body>
+		<%= render :partial => "titulo" %>
+		<h1>Exibndo Restaurante</h1>
+		<p>
+		Nome: <%=h @restaurante.nome%>
+		</p>
+		<p>
+		Endereço: <%=h @restaurante.endereco%>
+		</p>
+		<p>
+		Especialidade: <%=h @restaurante.especialidade%>
+		</p>
+		<b>Nota média:</b> <%=h @restaurante.qualificacoes.average(:nota) %>
+		<b>Qualificações:</b> <%=h @restaurante.qualificacoes.count %>
+		<b>Preço médio:</b> <%=h @restaurante.qualificacoes.average(:valor_gasto) %>
+		
+		<br><br>
+		<% unless @restaurante.comentarios.empty? %>
+			<%= comentarios @restaurante %>
+		<% end %>
+		<%= novo_comentario(@restaurante)%>
+
+		<%= link_to "Editar", {:action => "edit", :id => @restaurante}%>
+		<%= link_to "Voltar", {:action => "index"} %>
+		<%= link_to "Qualificar este restaurante", :controller => "qualificacoes", :action => "new", :restaurante => @restaurante %>
+		<br>
+		<br>
+	</body>
+</html>

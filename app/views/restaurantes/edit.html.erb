@@ -1,0 +1,19 @@
+<%= render :partial => "titulo" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Untitled Document</title>
+	</head>
+	<body>
+		<h1>Editando restaurante</h1>
+		<%= error_messages_for :restaurante %>
+		<% form_for :restaurante, :url => {:action => "update", :id => @restaurante} do |f| %>
+			Nome: <%= f.text_field :nome %>
+			Endereço: <%= f.text_field :endereco %>
+			Especialidade: <%= f.text_field :especialidade %>
+			<%= submit_tag "Alterar" %>
+		<% end %>
+		<%= link_to "Voltar", {:action => "index"} %>
+	</body>
+</html>
